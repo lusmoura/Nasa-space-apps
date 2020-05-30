@@ -26,3 +26,4 @@ def get(path=''):
     df = pd.read_csv(data, '\t')
     
     return df
+get()

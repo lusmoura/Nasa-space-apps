@@ -8,8 +8,6 @@ import pandas as pd
 def get(subset=None, verbose=False):
     """Loads Data
     # Arguments
-        year: a string with the year you want to download the data from 
-        month: a string with the month you want to download the data from
         subset: the last row to load in the Dataframe
         verbose
     # Returns

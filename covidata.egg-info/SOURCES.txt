@@ -1,0 +1,13 @@
+README.md
+setup.py
+covidata/__init__.py
+covidata.egg-info/PKG-INFO
+covidata.egg-info/SOURCES.txt
+covidata.egg-info/dependency_links.txt
+covidata.egg-info/top_level.txt
+covidata/esa/__init__.py
+covidata/esa/mortality_natality.py
+covidata/esa/opendata.py
+covidata/jaxa/__init__.py
+covidata/jaxa/gosat.py
+covidata/nasa/__init__.py

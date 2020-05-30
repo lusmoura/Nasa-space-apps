@@ -1,2 +1,5 @@
-# Nasa-space-apps
-Nasa Space Apps Hackathon
+# Covidata
+
+Easily access NASA, ESA and JAXA data
+
+## Datasets

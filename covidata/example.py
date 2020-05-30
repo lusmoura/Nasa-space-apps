@@ -12,6 +12,6 @@ def get(path=''):
     data = request.get(
         path,
         origin='https://s3.amazonaws.com/keras-datasets/boston_housing.npz')
-    df = pandas.read_csv(data)
+    df = pd.read_csv(data)
     
     return df

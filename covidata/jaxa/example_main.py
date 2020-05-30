@@ -24,3 +24,6 @@ def get(path=''):
     df = pd.read_csv('/tmp/gosat.tsv', '\t')
     
     return df
+
+df = get()
+print(df.head())

@@ -20,9 +20,9 @@ def get(path=''):
             lines = r.text.split('\n')[11:-1]
             # data = open('/tmp/covidata/gosat.tsv', 'w')
             for l in lines:
-                l = '\t'.join(l.split())
+                l = '\t'.join(l.split()) + "\n"
                 data.write(l)
     
-    df = pd.read_csv(data)
+    df = pd.read_csv(data, '\t')
     
     return df

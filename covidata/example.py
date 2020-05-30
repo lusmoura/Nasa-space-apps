@@ -9,8 +9,9 @@ def get(path=''):
     # Returns
         Dataframe or numpy arrays (if image)
     """
-    path = request.get(
+    data = request.get(
         path,
         origin='https://s3.amazonaws.com/keras-datasets/boston_housing.npz')
+    df = pandas.read_csv(data)
     
-    return (x_train, y_train), (x_test, y_test)
+    return df

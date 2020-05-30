@@ -23,7 +23,6 @@ def get(path=''):
                 l = '\t'.join(l.split()) + "\n"
                 data.write(l)
     
-    df = pd.read_csv(data, '\t')
+    df = pd.read_csv('/tmp/gosat.tsv', '\t')
     
     return df
-get()

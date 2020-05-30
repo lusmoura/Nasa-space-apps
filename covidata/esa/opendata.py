@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-def get(year='2019', month='02', subset=-1, verbose=False):
+def get(subset=None, verbose=False):
     """Loads Data
     # Arguments
         year: a string with the year you want to download the data from 
@@ -16,19 +16,19 @@ def get(year='2019', month='02', subset=-1, verbose=False):
         Dataframe with the data
     """
 
-    if not os.path.exists('/tmp/gosat.tsv'):
+    if not os.path.exists('/tmp/opendata.csv'):
         if verbose:
             print("Cache not found, downloading data...")
-        with open(f'/tmp/gosat{year}{month}.tsv', 'w') as data:
-            r = requests.get(f'https://www.eorc.jaxa.jp/GOSAT/GPCG/download/data-g2-{year}{month}.txt')
+        with open(f'/tmp/opendata.csv', 'w') as data:
+            r = requests.get(f'https://opendata.ecdc.europa.eu/covid19/casedistribution/csv')
             if verbose:
                 print("Downloaded data")
-            lines = r.text.split('\n')[11:subset]
+            lines = r.text.split('\r\n')[:subset]
             for l in lines:
-                l = '\t'.join(l.split()) + "\n"
+                l += '\n'
                 data.write(l)
     
-    df = pd.read_csv('/tmp/gosat.tsv', '\t')
+    df = pd.read_csv('/tmp/opendata.csv')
     if verbose:
         print("Dataset loaded")
     return df

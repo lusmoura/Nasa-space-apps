@@ -5,11 +5,13 @@ import pandas as pd
 
 
 
-def get(year='2019', month='02', verbose=false):
+def get(year='2019', month='02', subset=-1, verbose=false):
     """Loads Data
     # Arguments
         year: a string with the year you want to download the data from 
         month: a string with the month you want to download the data from
+        subset: the last row to load in the Dataframe
+        verbose
     # Returns
         Dataframe with the data
     """
@@ -21,7 +23,7 @@ def get(year='2019', month='02', verbose=false):
             r = requests.get(f'https://www.eorc.jaxa.jp/GOSAT/GPCG/download/data-g2-{year}{month}.txt')
             if verbose:
                 print("Downloaded data")
-            lines = r.text.split('\n')[11:-1]
+            lines = r.text.split('\n')[11:subset]
             for l in lines:
                 l = '\t'.join(l.split()) + "\n"
                 data.write(l)
@@ -33,5 +35,5 @@ def get(year='2019', month='02', verbose=false):
 
 
 if __name__ == '__main__':
-    df = get(verbose=true)
+    df = get(subset=100, verbose=true)
     print(df.head())

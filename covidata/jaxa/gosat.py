@@ -5,12 +5,13 @@ import pandas as pd
 
 
 
-def get(year=2019, month='02'):
+def get(year='2019', month='02'):
     """Loads Data
     # Arguments
-        path: path where to cache the dataset locally
+        year: a string with the year you want to download the data from 
+        month: a string with the month you want to download the data from
     # Returns
-        Dataframe or numpy arrays (if image)
+        Dataframe with the data
     """
 
     if not os.path.exists('/tmp/gosat.tsv'):

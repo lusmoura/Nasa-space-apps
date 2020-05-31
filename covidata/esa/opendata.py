@@ -46,6 +46,7 @@ class OpenData:
         if verbose:
             print("Dataset loaded")
         self.df = df
+    
     def summarize(self):
         """Returns summary statistics of the dataset"""
         return self.df.describe()

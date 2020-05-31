@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: covidata
-Version: 0.0.3
+Version: 0.0.4
 Summary: Easily access NASA, ESA and JAXA data
 Home-page: https://github.com/lusmoura/Nasa-space-apps
 Author: Control-space
@@ -10,7 +10,11 @@ Description: # Covidata
         
         Easily access NASA, ESA and JAXA data
         
-        ## Datasets
+        ## About
+        
+        You can use this API to access and see statistics about NASA, JAXA and ESA datasets. Check the available datasets and how to use them bellow.
+        
+        ## Available Datasets
         ### ESA
             mortality and natality
             coronavirus cases worldwide
@@ -22,12 +26,21 @@ Description: # Covidata
             landslides
             atmospherical data
         
-        ## Example
+        ## Main Functions
+        ### Constructors
+            Initialize an object with the required data
+        
+        ### Describe
+            Generete statistics about all the features in the dataset, such as mean, standard deviation and quartiles.
+        
+        ## Examples
         ```python
-        import covidata
-        os = covidata.esa.opendata
-        df = os.get()
-        print(df.head())
+        from covidata.nasa import Atmospheric
+        
+        AG = Atmospheric(subset=100, verbose=True)
+        
+        print(AG.summarize())
+        print(AG.head())
         ```
         
 Platform: UNKNOWN

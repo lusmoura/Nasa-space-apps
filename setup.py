@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="covidata",
-    version="0.0.3",
+    version="0.0.4",
     author="Control-space",
     author_email="author@example.com",
     description="Easily access NASA, ESA and JAXA data",

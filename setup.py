@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="covidata",
-    version="0.0.6",
+    name="pyspace-api",
+    version="0.0.1",
     author="Control-space",
     author_email="author@example.com",
     description="Easily access NASA, ESA and JAXA data",

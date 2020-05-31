@@ -1,0 +1,17 @@
+README.md
+setup.py
+pyspace/__init__.py
+pyspace/esa/__init__.py
+pyspace/esa/mortality_natality.py
+pyspace/esa/opendata.py
+pyspace/jaxa/__init__.py
+pyspace/jaxa/gosat.py
+pyspace/nasa/__init__.py
+pyspace/nasa/atmospheric.py
+pyspace/nasa/earthdata_login.py
+pyspace/nasa/landslide.py
+pyspace_api.egg-info/PKG-INFO
+pyspace_api.egg-info/SOURCES.txt
+pyspace_api.egg-info/dependency_links.txt
+pyspace_api.egg-info/requires.txt
+pyspace_api.egg-info/top_level.txt

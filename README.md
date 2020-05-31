@@ -1,4 +1,4 @@
-# Covidata
+# Pyspace
 
 Easily access NASA, ESA and JAXA data
 
@@ -27,7 +27,7 @@ You can use this API to access and see statistics about NASA, JAXA and ESA datas
 
 ## Examples
 ```python
-from covidata.nasa import Landslide
+from pyspace.nasa import Landslide
 
 LS = Landslide(subset=100, verbose=True)
 

@@ -4,34 +4,43 @@ import requests
 import pandas as pd
 
 
-
-def get(subset=-1, verbose=False):
-    """Loads Data
-    # Arguments
-        subset: the last row to load in the Dataframe
-        verbose
-    # Returns
-        Dataframe with the data
-    """
-
-    if not os.path.exists('/tmp/mortality_natality.tsv'):
-        if verbose:
-            print("Cache not found, downloading data...")
-        with open(f'/tmp/mortality_natality.tsv', 'w') as data:
-            r = requests.get('https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/urb_lfermor.tsv.gz&unzip=true')
+class MortalityNatality:
+    def __init__(self, subset=-1, verbose=False):
+        """Loads Data
+        # Arguments
+            subset: the last row to load in the Dataframe
+            verbose
+        # Returns
+            Dataframe with the data
+        """
+        super().__init__()
+        if not os.path.exists('/tmp/mortality_natality.tsv'):
             if verbose:
-                print("Downloaded data")
-            lines = r.text.split('\n')[:subset]
-            for l in lines:
-                l += "\n"
-                data.write(l)
+                print("Cache not found, downloading data...")
+            try:
+                with open('/tmp/mortality_natality.tsv', 'w') as data:
+                    r = requests.get('https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/urb_lfermor.tsv.gz&unzip=true')
+                    if verbose:
+                        print("Downloaded data")
+                    lines = r.text.split('\n')[:subset]
+                    for l in lines:
+                        l += "\n"
+                        data.write(l)
+            except:
+                os.remove('/tmp/mortality_natality.tsv')
+                raise ConnectionError("You need an internet connection to download the data")
+                
     
-    df = pd.read_csv('/tmp/mortality_natality.tsv', '\t')
-    if verbose:
-        print("Dataset loaded")
-    return df
+        df = pd.read_csv('/tmp/mortality_natality.tsv', '\t')
+        if verbose:
+            print("Dataset loaded")
+        self.df = df
+
+    def summarize(self):
+        return self.df.describe()
+    
 
 
 if __name__ == '__main__':
-    df = get(subset=100, verbose=True)
-    print(df.head())
+    MN = MortalityNatality(subset=100, verbose=True)
+    print(MN.summarize())

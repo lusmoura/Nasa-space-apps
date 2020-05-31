@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="covidata", # Replace with your own username
-    version="0.0.1",
+    name="covidata",
+    version="0.0.2",
     author="Control-space",
     author_email="author@example.com",
     description="Easily access NASA, ESA and JAXA data",
@@ -19,4 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    install_requires=['pandas', 
+                    'requests']
 )

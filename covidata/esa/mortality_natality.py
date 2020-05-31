@@ -28,7 +28,7 @@ class MortalityNatality:
                         data.write(l)
             except:
                 os.remove('/tmp/mortality_natality.tsv')
-                raise Exception("You need an internet connection to download the data")
+                raise ConnectionError("You need an internet connection to download the data")
                 
     
         df = pd.read_csv('/tmp/mortality_natality.tsv', '\t')

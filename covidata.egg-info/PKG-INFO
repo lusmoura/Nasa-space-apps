@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: covidata
-Version: 0.0.4
+Version: 0.0.5
 Summary: Easily access NASA, ESA and JAXA data
 Home-page: https://github.com/lusmoura/Nasa-space-apps
 Author: Control-space
@@ -35,12 +35,12 @@ Description: # Covidata
         
         ## Examples
         ```python
-        from covidata.nasa import Atmospheric
+        from covidata.nasa import Landslides
         
-        AG = Atmospheric(subset=100, verbose=True)
+        LS = Landslides(subset=100, verbose=True)
         
-        print(AG.summarize())
-        print(AG.head())
+        print(LS.summarize())
+        print(LS.head())
         ```
         
 Platform: UNKNOWN

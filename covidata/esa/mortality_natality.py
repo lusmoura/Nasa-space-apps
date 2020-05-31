@@ -17,14 +17,19 @@ class MortalityNatality:
         if not os.path.exists('/tmp/mortality_natality.tsv'):
             if verbose:
                 print("Cache not found, downloading data...")
-            with open(f'/tmp/mortality_natality.tsv', 'w') as data:
-                r = requests.get('https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/urb_lfermor.tsv.gz&unzip=true')
-                if verbose:
-                    print("Downloaded data")
-                lines = r.text.split('\n')[:subset]
-                for l in lines:
-                    l += "\n"
-                    data.write(l)
+            try:
+                with open('/tmp/mortality_natality.tsv', 'w') as data:
+                    r = requests.get('https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/urb_lfermor.tsv.gz&unzip=true')
+                    if verbose:
+                        print("Downloaded data")
+                    lines = r.text.split('\n')[:subset]
+                    for l in lines:
+                        l += "\n"
+                        data.write(l)
+            except:
+                os.remove('/tmp/mortality_natality.tsv')
+                raise Exception("You need an internet connection to download the data")
+                
     
         df = pd.read_csv('/tmp/mortality_natality.tsv', '\t')
         if verbose:

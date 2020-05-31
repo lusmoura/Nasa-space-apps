@@ -6,8 +6,20 @@ import pandas as pd
 
 
 class Landslide:
+    """Contains the NASA landslide data
+       Atributes
+       ---------
+       df: pandas.DataFrame
+            Dataframe with landslide data
+
+       Methods
+       -------
+        summarize
+            Returns summary statistics of the dataset
+    """
+
     def __init__(self, subset=-1, verbose=False):
-        """Loads Data
+        """Instantiates the object and downloads the data
         # Arguments
             subset: the last row to load in the Dataframe
             verbose
@@ -37,6 +49,7 @@ class Landslide:
         self.df =  df
     
     def summarize(self):
+        """Returns summary statistics of the dataset"""
         return self.df.describe()
 
 

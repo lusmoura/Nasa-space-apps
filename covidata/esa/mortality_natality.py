@@ -5,15 +5,27 @@ import pandas as pd
 
 
 class MortalityNatality:
+    """Contains the ESA Mortality and Natality Data
+       Atributes
+       ---------
+       df: pandas.DataFrame
+            Dataframe with mortality and natality data
+
+       Methods
+       -------
+        summarize
+            Returns summary statistics of the dataset
+    """
+
     def __init__(self, subset=-1, verbose=False):
-        """Loads Data
+        """Instantiates the object and downloads the data
         # Arguments
             subset: the last row to load in the Dataframe
             verbose
         # Returns
             Dataframe with the data
         """
-        super().__init__()
+        
         if not os.path.exists('/tmp/mortality_natality.tsv'):
             if verbose:
                 print("Cache not found, downloading data...")
@@ -37,6 +49,7 @@ class MortalityNatality:
         self.df = df
 
     def summarize(self):
+        """Returns summary statistics of the dataset"""
         return self.df.describe()
     
 

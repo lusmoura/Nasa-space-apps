@@ -5,8 +5,20 @@ import pandas as pd
 
 
 class Gosat:
+    """Contains the GOSAT greenhouse gases concentration data
+       Atributes
+       ---------
+       df: pandas.DataFrame
+            Dataframe with gosat data
+
+       Methods
+       -------
+        summarize
+            Returns summary statistics of the dataset
+    """
+    
     def __init__(self, subset=-1, verbose=False, month='02', year='2019'):
-        """Loads Data
+        """Instantiates the object and downloads the data
         # Arguments
             year: a string with the year you want to download the data from 
             month: a string with the month you want to download the data from
@@ -37,6 +49,7 @@ class Gosat:
             print("Dataset loaded")
         self.df = df
     def summarize(self):
+        """Returns summary statistics of the dataset"""
         return self.df.describe()
 
 

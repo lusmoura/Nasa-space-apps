@@ -7,14 +7,27 @@ from nasa_cookies import login_data, headers
 
 
 class Atmospheric:
+    """Contains the NASA Atmospheric data
+       Atributes
+       ---------
+       df: pandas.DataFrame
+            Dataframe with atmospheric data
+
+       Methods
+       -------
+        summarize
+            Returns summary statistics of the dataset
+    """
+    
     def __init__(self, subset=-1, verbose=False):
-        """Loads Data
+        """Instantiates the object and downloads the data
         # Arguments
             subset: the last row to load in the Dataframe
             verbose
         # Returns
             Dataframe with the data
         """
+
         if not os.path.exists('/tmp/atmosferic_gas_concentration.csv'):
             if verbose:
                 print("Cache not found, downloading data...")
@@ -46,7 +59,9 @@ class Atmospheric:
         if verbose:
             print("Dataset loaded")
         self.df = df
+    
     def summarize(self):
+        """Returns summary statistics of the dataset"""
         return self.df.describe()
 
 if __name__ == '__main__':

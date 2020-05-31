@@ -3,7 +3,7 @@ import os
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup as soup
-from nasa_cookies import login_data, headers
+from .nasa_cookies import login_data, headers
 
 
 class Atmospheric:

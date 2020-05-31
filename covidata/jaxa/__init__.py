@@ -1,1 +1,1 @@
-from . import gosat
+from .gosat import Gosat

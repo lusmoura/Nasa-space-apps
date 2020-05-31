@@ -1,2 +1,2 @@
-from . import mortality_natality
-from . import opendata
+from .mortality_natality import MortalityNatality 
+from .opendata import OpenData

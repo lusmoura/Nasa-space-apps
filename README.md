@@ -27,10 +27,10 @@ You can use this API to access and see statistics about NASA, JAXA and ESA datas
 
 ## Examples
 ```python
-from covidata.nasa import Landslides
+from covidata.nasa import Landslide
 
-LS = Landslides(subset=100, verbose=True)
+LS = Landslide(subset=100, verbose=True)
 
 print(LS.summarize())
-print(LS.head())
+print(LS.df.head())
 ```
